@@ -1,0 +1,19 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>Список авторов в БД</h1>
+    {% if author_list %}
+    <ul>
+      {% for author in author_list.all %}
+      <li>
+        <a href="{{ author.get_absolute_url }}">
+                 {{author.first_name}}  {{ author.last_name }}</a>
+
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+      <p>В базе данных нет авторов</p>
+    {% endif %}
+{% endblock %}
+
